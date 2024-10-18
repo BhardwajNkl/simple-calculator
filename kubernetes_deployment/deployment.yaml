@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-calculator-deployment
+  labels:
+    app: simple-calculator
+spec:
+  replicas: 2  # Let's start with 2 instances(pods) of our application.
+  selector:
+    matchLabels:
+      app: simple-calculator
+  template:
+    metadata:
+      labels:
+        app: simple-calculator
+    spec:
+      containers:
+      - name: simple-calculator-container
+        image: bhardwajnkl/simple-calculator:1.0  # Docker image of the application
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9090  # Port on which the container listens
