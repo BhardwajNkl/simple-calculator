@@ -6,9 +6,9 @@ This is a Spring Boot backend API for a Calculator application. The API provides
 - multiplying two numbers. /multiply/{num1}/{num2}
 - divide one number by another. /divide/{num1}/{num2}
 
-The project contains necessary Kubernetes YAML files to deploy the application on a Kubernetes cluster.
+The project contains Dockerfile and necessary Kubernetes YAML files to deploy the application on a Kubernetes cluster. Here, I will tell you about both ways to get this app running locally.
 
-## Running the Application using the public Docker image.
+## 1. Running the Application using the public Docker image.
 ### Prerequisites
 Before you start, ensure you have the following installed:
 - Docker
@@ -17,7 +17,7 @@ Before you start, ensure you have the following installed:
 docker run -d -p 9090:9090 --name simple-calculator bhardwajnkl/simple-calculator:1.0
 ```
 Now, Once run you can access the application: http://localhost:9090
-Use the 4 endpoints for your calculations.
+Use the 4 endpoints(mentioned in project overview section) for your calculations.
 
 ### Clean up
 First find the ID of this container using the below command:
@@ -34,11 +34,12 @@ And finally, remove the image as well:
 docker rmi bhardwajnkl/simple-calculator:1.0
 ```
 
-## Kubernetes Deployment
+## 2. Kubernetes Deployment
 ### Prerequisites
 Before you start, ensure you have the following installed:
 - Minikube
 - Kubectl
+
 Now, Follow the below steps:
 ### Step 1: Clone the repository
 ```bash
@@ -80,7 +81,7 @@ kubectl get services
 
 Look for the EXTERNAL-IP and PORT(s). The external IP should be 127.0.0.1 and port 9090.
 
-Now, you can access the Appliation. I have already provided the list of endpoints in the beginning of this README.
+Now, you can access the Appliation(supported endpoints are given in the project overview section).
 **IF THE PAGE DOES NOT LOAD, PLEASE WAIT FOR 1-2 MINUTE. AND REFRESH.**
 
 ### Step 6: Clean UP
